@@ -136,7 +136,7 @@ def eval(
                     print(f"Using twist command: {current_command}")
                 else:
                     # If no command received, move forward with default velocity
-                    default_forward_vel = 0.5  # Default forward velocity in m/s
+                    default_forward_vel = 0.0  # Default forward velocity in m/s
                     env.commands[0, :] = torch.tensor([default_forward_vel, 0.0, 0.0], device=gs.device)
                     print(f"Using default command: forward_vel={default_forward_vel}")
                 

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robot_urdf">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="4.37705665220361E-05 0.0175806187997978 0.043660357563639"
+        rpy="0 0 0" />
+      <mass
+        value="0.255698880861826" />
+      <inertia
+        ixx="0.000411144132403491"
+        ixy="4.16294585913493E-07"
+        ixz="-4.7645790687015E-07"
+        iyy="0.000682757102532273"
+        iyz="5.4010758392147E-05"
+        izz="0.000775509602928662" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link2_left">
+    <inertial>
+      <origin
+        xyz="2.54522695908102E-05 0.0349781563709796 0.0046026953917245"
+        rpy="0 0 0" />
+      <mass
+        value="0.123181820863459" />
+      <inertia
+        ixx="5.66368461066979E-05"
+        ixy="3.58016201067556E-08"
+        ixz="6.06632395769424E-08"
+        iyy="6.43979767375976E-05"
+        iyz="-6.07198869883702E-06"
+        izz="6.06058466511572E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link2_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link2_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_adduction"
+    type="continuous">
+    <origin
+      xyz="-0.0515 -0.014 0.0645"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link2_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link3_left">
+    <inertial>
+      <origin
+        xyz="-0.0213662641195734 -4.70775350335517E-05 -0.00438523576566541"
+        rpy="0 0 0" />
+      <mass
+        value="0.135976387780092" />
+      <inertia
+        ixx="5.05901475484616E-05"
+        ixy="2.80419075519887E-08"
+        ixz="2.28819422443921E-06"
+        iyy="8.93087973179367E-05"
+        iyz="6.8993022599937E-08"
+        izz="0.000113081889749854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link3_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link3_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_sweeping"
+    type="continuous">
+    <origin
+      xyz="0 0.07979 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link2_left" />
+    <child
+      link="Link3_left" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link2_right">
+    <inertial>
+      <origin
+        xyz="2.54522695907755E-05 0.0349781563709795 0.0046026953917245"
+        rpy="0 0 0" />
+      <mass
+        value="0.123181820863459" />
+      <inertia
+        ixx="5.6636846106698E-05"
+        ixy="3.58016201067483E-08"
+        ixz="6.06632395769338E-08"
+        iyy="6.43979767375976E-05"
+        iyz="-6.07198869883701E-06"
+        izz="6.06058466511573E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link2_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link2_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_adduction"
+    type="continuous">
+    <origin
+      xyz="0.0515 -0.014 0.0645"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link2_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link3_right">
+    <inertial>
+      <origin
+        xyz="0.0213662641195733 4.7077535033635E-05 -0.00438523576566535"
+        rpy="0 0 0" />
+      <mass
+        value="0.135976387780092" />
+      <inertia
+        ixx="5.05901475484615E-05"
+        ixy="2.80419075519388E-08"
+        ixz="-2.28819422443922E-06"
+        iyy="8.93087973179365E-05"
+        iyz="-6.89930225999797E-08"
+        izz="0.000113081889749854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link3_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://meshes/Link3_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_sweeping"
+    type="continuous">
+    <origin
+      xyz="0 0.07979 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link2_right" />
+    <child
+      link="Link3_right" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+</robot>
