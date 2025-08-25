@@ -18,7 +18,7 @@ class Go2Env:
         self.device = gs.device
 
         self.simulate_action_latency = True  # there is a 1 step latency on real robot
-        self.dt = 0.02  # control frequency on real robot is 50hz
+        self.dt = 4e-3  # control frequency on real robot is 50hz
         self.max_episode_length = math.ceil(env_cfg["episode_length_s"] / self.dt)
 
         self.env_cfg = env_cfg
@@ -31,25 +31,43 @@ class Go2Env:
 
         # create scene
         self.scene = gs.Scene(
-            sim_options=gs.options.SimOptions(dt=self.dt, substeps=2),
+            sim_options=gs.options.SimOptions(dt=self.dt, substeps=15),
             viewer_options=gs.options.ViewerOptions(
                 max_FPS=int(0.5 / self.dt),
                 camera_pos=(2.0, 0.0, 2.5),
                 camera_lookat=(0.0, 0.0, 0.5),
                 camera_fov=40,
             ),
-            vis_options=gs.options.VisOptions(rendered_envs_idx=list(range(1))),
+            mpm_options=gs.options.MPMOptions(
+                lower_bound   = (-2.0, -2.0, -0.1),
+                upper_bound   = (2.0, 2.0, 1),
+            ),
+            vis_options=gs.options.VisOptions(rendered_envs_idx=list(range(1)),
+                visualize_mpm_boundary = True,
+            ),
             rigid_options=gs.options.RigidOptions(
                 dt=self.dt,
                 constraint_solver=gs.constraint_solver.Newton,
                 enable_collision=True,
                 enable_joint_limit=True,
-            ),
+                ),
             show_viewer=show_viewer,
-        )
+            )
 
         # add plain
         self.scene.add_entity(gs.morphs.URDF(file="urdf/plane/plane.urdf", fixed=True))
+
+        obj_elastic = self.scene.add_entity(
+            material=gs.materials.MPM.Sand(),
+            morph=gs.morphs.Box(
+                pos  = (0.0, 0.0, 0.05),
+                size = (3.8, 3.8, 0.1),
+            ),
+            surface=gs.surfaces.Default(
+                    color    = (1.0, 0.4, 0.4),
+                vis_mode = 'particle',
+            ),
+        )
 
         # add robot
         self.base_init_pos = torch.tensor(self.env_cfg["base_init_pos"], device=gs.device)
