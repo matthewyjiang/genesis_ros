@@ -8,7 +8,7 @@ import time
 from pycdr2 import IdlStruct
 from typing import Dict, Any, Callable, Optional
 
-from genesis_ros.topic_interfaces import TopicInterface
+from genesis_ros.ros2_interface.topic_interfaces import TopicInterface
 
 
 class ROS2Interface(TopicInterface):
